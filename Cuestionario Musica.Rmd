@@ -1,0 +1,283 @@
+---
+title: "Cuestionario de Investigación: Consumo de Música Trap Argentina"
+#author: "Kendall"
+#date: "2025-09-03"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cosmo
+    css: styles.css
+---
+
+```{css, echo=FALSE}
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap');
+
+body {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #e94560;
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3.5em;
+  text-align: center;
+  color: #00d9ff;
+  text-shadow: 0 0 20px #00d9ff, 0 0 40px #e94560;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff, 0 0 30px #e94560; }
+  to { text-shadow: 0 0 20px #00d9ff, 0 0 30px #00d9ff, 0 0 40px #e94560; }
+}
+
+h2 {
+  font-family: 'Bebas Neue', cursive;
+  color: #00d9ff;
+  font-size: 2.2em;
+  border-left: 5px solid #e94560;
+  padding-left: 15px;
+  margin-top: 40px;
+  letter-spacing: 2px;
+}
+
+h3 {
+  color: #00d9ff;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-top: 25px;
+}
+
+.main-container {
+  background: rgba(22, 33, 62, 0.8);
+  border: 2px solid #e94560;
+  border-radius: 15px;
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
+}
+
+p, li {
+  color: #ffffff;
+  font-size: 1.1em;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+strong {
+  color: #e94560;
+  font-weight: 700;
+}
+
+.intro-box {
+  background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(0, 217, 255, 0.2));
+  border-left: 4px solid #00d9ff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.objetivo-box {
+  background: rgba(15, 52, 96, 0.6);
+  border: 2px dashed #e94560;
+  padding: 25px;
+  margin: 25px 0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.poblacion-box {
+  background: rgba(0, 217, 255, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.form-button {
+  display: block;
+  margin: 40px auto;
+  padding: 20px 60px;
+  background: linear-gradient(135deg, #e94560, #ff6b9d);
+  color: white;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2em;
+  text-decoration: none;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+  transition: all 0.3s ease;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.form-button:hover {
+  background: linear-gradient(135deg, #ff6b9d, #e94560);
+  box-shadow: 0 0 40px rgba(233, 69, 96, 1);
+  transform: scale(1.05);
+  color: white;
+}
+
+ul, ol {
+  padding-left: 30px;
+}
+
+li {
+  margin: 10px 0;
+}
+
+#TOC {
+  background: rgba(26, 26, 46, 0.9);
+  border: 2px solid #00d9ff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+#TOC a {
+  color: #00d9ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#TOC a:hover {
+  color: #e94560;
+}
+
+.section {
+  margin-bottom: 50px;
+}
+
+.list-group-item {
+  color: black !important;
+  background-color: white !important;
+  border: none !important;
+  font-weight: 500;
+}
+
+
+.list-group-item:hover {
+  color: #e94560 !important;
+  background-color: #f2f2f2 !important;
+}
+
+
+.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover {
+  color: black !important;
+  background-color: #d9d9d9 !important;
+  border: none !important;
+}
+
+
+.emoji {
+  font-size: 1.3em;
+  margin-right: 10px;
+}
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(knitr)
+```
+
+---
+
+## 🎤 Introducción
+
+<div class="intro-box">
+
+### Propósito del Cuestionario
+
+Este cuestionario tiene como finalidad investigar los **hábitos de consumo, preferencias y percepciones** sobre la música trap argentina entre jóvenes y adultos jóvenes en América Latina. Buscamos comprender cómo este género urbano influye en la identidad cultural, los patrones de consumo digital y las dinámicas sociales de sus oyentes.
+
+### Importancia del Estudio
+
+La música trap argentina ha experimentado un crecimiento exponencial en los últimos años, convirtiéndose en un fenómeno cultural que trasciende fronteras. Este estudio permitirá:
+
+- Identificar tendencias en el consumo de música urbana latinoamericana
+- Comprender el impacto cultural y social del trap argentino
+- Analizar plataformas y modalidades de consumo
+- Generar conocimiento académico sobre música urbana contemporánea
+
+### Instrucciones Generales
+
+<span class="emoji">📋</span> Por favor, responda todas las preguntas con sinceridad y según su experiencia personal.
+
+<span class="emoji">⏱️</span> El cuestionario toma aproximadamente **8-10 minutos** en completarse.
+
+<span class="emoji">✅</span> No hay respuestas correctas o incorrectas, solo su opinión es importante.
+
+### Confidencialidad y Uso de los Datos
+
+<span class="emoji">🔒</span> Toda la información recopilada será tratada de manera **confidencial y anónima**.
+
+<span class="emoji">📊</span> Los datos serán utilizados exclusivamente con **fines de investigación académica**.
+
+<span class="emoji">🚫</span> No se compartirá información personal identificable con terceros.
+
+<span class="emoji">✨</span> Su participación es voluntaria y puede retirarse en cualquier momento.
+
+</div>
+
+---
+
+## 👥 Población Meta
+
+<div class="poblacion-box">
+
+### Características Demográficas
+
+**Edad:** 15 a 35 años
+
+**Perfil:** Jóvenes y adultos jóvenes con acceso a plataformas digitales de streaming musical
+
+**Aspectos a considerar:** 
+
+Tener conocimiento básico sobre el género trap o música urbana
+
+Visualizacion de efectos que contiene la musica actual en la sociedad
+
+</div>
+
+---
+
+## 🎯 Objetivo General
+
+<div class="objetivo-box">
+
+**Analizar los patrones de consumo, preferencias musicales y percepciones socioculturales relacionadas con el trap argentino entre jóvenes de 15 a 35 años en América Latina, identificando su impacto en la construcción de identidad cultural y hábitos de consumo digital durante el período 2024-2025.**
+
+</div>
+
+---
+
+## 🔗 Acceso al Cuestionario
+
+<a href="https://forms.office.com/Pages/ResponsePage.aspx?id=JWWIElhdgUiX6YAgrDvPZI3nM9FilwVDsedN_VcAiOVUOFUwUzA3VUU1S0wyRlVQREUxRVFEVzBHQi4u" 
+   class="form-button" target="_blank">
+   🎵 COMPLETAR CUESTIONARIO 🎵
+</a>
+
+
+<div class="intro-box" style="text-align: center; margin-top: 30px;">
+
+### Instrucciones para completar el cuestionario:
+
+1. Haz clic en el botón de arriba
+2. Serás redirigido a Microsoft Forms
+3. Completa todas las preguntas
+4. Envía tus respuestas
+
+**¡Tu participación es muy valiosa para esta investigación!**
+
+<span class="emoji">🙏</span> Gracias por tu tiempo y colaboración
+
+</div>  
+---
